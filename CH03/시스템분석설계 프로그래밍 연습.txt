@@ -1,0 +1,152 @@
+1.
+public class Student {
+	String Stu;
+	int StuNum;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Student a = new Student();
+		a.Stu = "컴퓨터 정보 공학과";
+		a.StuNum = 20141649;
+		System.out.println("학과 = " + a.Stu);
+		System.out.println("학번 = " + a.StuNum);
+	}
+}
+
+2.
+public class Student {
+	private String Stu;
+	private int StuNum;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Student m = new Student();
+		m.setMe("컴퓨터 정보학과", 20141649);
+		System.out.println("학과 = " + m.getStu());
+		System.out.println("학번 = " + m.getStuNum());
+	}
+	String getStu(){
+		return Stu;
+	}
+	int getStuNum(){		
+		return StuNum;
+	}
+	void setMe(String a,int b){
+		Stu = a;
+		StuNum = b;
+	}	
+}
+
+3.
+public class Circle {
+  public double radius;
+	public static double PI = 3.141592;
+	
+	//생성자 구현
+	public Circle(double radius){
+		this.radius = radius;
+	}
+	//현재 반지름을 사용하여 원의 면적을 구하는 메소드
+	public double getArea() {
+		return radius * radius * PI;
+	}
+}
+
+4.
+public class Cylinder {
+	Circle circle;
+	double height;
+
+	public Cylinder(Circle circle, double height) {
+		this.circle = circle;
+		this.height = height;
+	}
+	double getVolume() {
+		double Volume = circle.getArea() * height;
+		return Volume;
+	}
+	public static void main(String[] args) {
+		Cylinder cd = new Cylinder(new Circle(2.8), 5.6);
+		System.out.println("원통의 부피 = " + cd.getVolume());
+	}
+}
+
+5.
+public class SalaryMan {
+	int salary = 1000000; //초기값
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		SalaryMan m = new SalaryMan();
+		System.out.println(new SalaryMan().getAnnualGross());
+		System.out.println(new SalaryMan(2_000_000).getAnnualGross());
+	}
+	//기본생성자
+	public SalaryMan(){
+		
+	}
+	//정수형 생성자
+	public SalaryMan(int salary){
+		this.salary = salary;
+	}
+	int getAnnualGross(){
+		return (salary + (salary*5));
+	}
+}
+
+6,7
+public class Account {
+	private String owner;
+	private long balance;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Account money = new Account(); 
+		money.setbalance(100000); //현재 잔고
+		money.deposit(100000); //10만원입금
+		money.withdraw(50000); //5만원 출금
+		money.withdraw(50000); //5만원 출금
+		money.deposit(70000); //7만원 입금
+		money.withdraw(40000); //4만원 출금
+	}
+	//생성자 생성
+	public Account(){		
+	}
+	public Account(String owner){
+		this.owner = owner;
+	}
+	public Account(long balance){
+		this.balance = balance;
+	}
+	public Account(String owner, long balance){
+		this.owner = owner;
+		this.balance = balance;
+	}
+	
+	//get
+	public String getowner(){		
+		return owner;
+	}
+	public void setowner(String owner){
+		this.owner = owner;
+	}
+	public long getbalance(){		
+		return balance;
+	}
+	public void setbalance(long balance){		
+		this.balance = balance;
+	}
+	public long deposit(long amount){ //저축
+		long bal = this.balance + amount;
+		this.balance = bal;
+		System.out.println(amount + "원 입금 \n" + "현재 잔고 : " + bal );
+		return bal;
+	}
+	public long withdraw(long amount){ //인출
+		long bal = this.balance - amount;
+		this.balance = bal;
+		System.out.println(amount + "원 출금 \n" + "현재 잔고 : " + bal );
+		return bal;
+	}
+
+}
